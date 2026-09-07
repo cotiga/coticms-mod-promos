@@ -30,6 +30,12 @@ class Promo extends Model
      */
     public function scopeActive(Builder $query): Builder
     {
+        // Module coupé : aucune promo, où que la modale soit posée. La garde est ici,
+        // une fois pour toutes, plutôt que dans un @if recopié par chaque vue.
+        if (! \Cotiga\CotiCmsCore\Models\ModuleSettings::get()->promos_actif) {
+            return $query->whereRaw('1 = 0');
+        }
+
         $today = now()->toDateString();
 
         return $query->where('onl', true)
