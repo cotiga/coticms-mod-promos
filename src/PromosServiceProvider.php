@@ -24,7 +24,7 @@ class PromosServiceProvider extends ServiceProvider
                 \Cotiga\CotiCmsCore\Support\Slots::register(
                     key: 'promos',
                     view: 'promos::inc.slot',
-                    label: 'Modale promotionnelle',
+                    label: 'Promos — modale promotionnelle',
                     zone: 'fin-de-page',
                     scope: 'accueil',
                 );
