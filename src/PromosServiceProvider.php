@@ -17,8 +17,8 @@ class PromosServiceProvider extends ServiceProvider
         Blade::anonymousComponentNamespace('promos::components', 'promos');
 
         // Déclaration au socle : activer le module suffit à voir la modale, aucune
-        // vue de projet à modifier. Portée réglable en admin (la zone ne change rien
-        // à l'écran pour une modale, mais reste offerte par cohérence).
+        // vue de projet à modifier. Seule la portée compte ici — une modale est en
+        // overlay, l'emplacement ne change rien à l'écran.
         try {
             if (\Cotiga\CotiCmsCore\Models\ModuleSettings::get()->promos_actif) {
                 \Cotiga\CotiCmsCore\Support\Slots::register(
